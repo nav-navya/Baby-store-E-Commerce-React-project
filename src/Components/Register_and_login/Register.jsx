@@ -49,7 +49,11 @@ const Register = () => {
           if (user) {
             if (user.pwd === formData.pwd) {
               alert("Login Successfully");
-              navigate('/home')
+              navigate('/')
+              localStorage.setItem("isLoggedin",true)
+              localStorage.setItem("id",user.id)
+              localStorage.setItem("cart",[])
+              
             } else {
               setErrors({ ...validationError, pwd: "Wrong password" });
               setValidation(false);

@@ -5,14 +5,53 @@
       "fname": "Navya",
       "email": "navnavya@gmail.com",
       "pwd": "123456",
-      "cpwd": "123456"
+      "cpwd": "123456",
+      "cart": [
+        {
+          "id": "3",
+          "name": "Baby Stroller - Lightweight Travel",
+          "image": "https://rukminim2.flixcart.com/image/612/612/k6ci8i80/stroller-pram/z/z/a/caramel-baby-stroller-with-5-point-safety-harness-and-reversible-original-imafzuf3cypncybk.jpeg?q=70",
+          "price": 150,
+          "category": "nursery"
+        },
+        {
+          "id": "4",
+          "name": "Baby Bottle - Anti-Colic (Pack of 3)",
+          "image": " https://rukminim2.flixcart.com/image/612/612/xif0q/baby-bottle/g/a/n/anti-colic-slim-regular-neck-essential-baby-feeding-bottle-original-imah4gz6bskd8t7k.jpeg?q=70",
+          "price": 19.99,
+          "category": "nutrition"
+        }
+      ]
     },
     {
       "id": "ff18",
       "fname": "Navya Suresh",
       "email": "nav123@gmail.com",
       "pwd": "12345678",
-      "cpwd": "12345678"
+      "cpwd": "12345678",
+      "cart": [
+        {
+          "id": "1",
+          "name": "Baby Diapers - Size 1 (Pack of 120)",
+          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/diaper/6/8/z/-original-imah2sfqwhqgnpwx.jpeg?q=70",
+          "price": 25.99,
+          "category": "nutrition"
+        },
+        {
+          "id": "2",
+          "name": "Organic Cotton Onesie - Newborn",
+          "image": "https://rukminim2.flixcart.com/image/612/612/k4lmv0w0/bodysuit-sleepsuit/g/b/f/1-0-3-months-gwmhonesie0to3p5-mom-s-home-3-original-imafngctgyqusx4t.jpeg?q=70",
+          "price": 15.99,
+          "category": "clothes"
+        },
+        {
+          "id": "3",
+          "name": "Baby Stroller - Lightweight Travel",
+          "image": "https://rukminim2.flixcart.com/image/612/612/k6ci8i80/stroller-pram/z/z/a/caramel-baby-stroller-with-5-point-safety-harness-and-reversible-original-imafzuf3cypncybk.jpeg?q=70",
+          "price": 150,
+          "category": "nursery"
+        }
+      ]
     },
     {
       "id": "84fb",
@@ -20,153 +59,188 @@
       "email": "kk@gmail.com",
       "pwd": "345678",
       "cpwd": "345678"
-    }
-  ],
-
-  "products": [
-    
+    },
+    {
+      "id": "2177",
+      "fname": "asd",
+      "email": "asd@gmail.com",
+      "pwd": "121212",
+      "cpwd": "121212",
+      "cart": [
         {
-          "id": 1,
-          "name": "Baby Diapers - Size 1 (Pack of 120)",
-          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/diaper/6/8/z/-original-imah2sfqwhqgnpwx.jpeg?q=70",
-          "price": 25.99,
-          "category": "nutrition"
-        },
-        {
-          "id": 2,
+          "id": "2",
           "name": "Organic Cotton Onesie - Newborn",
           "image": "https://rukminim2.flixcart.com/image/612/612/k4lmv0w0/bodysuit-sleepsuit/g/b/f/1-0-3-months-gwmhonesie0to3p5-mom-s-home-3-original-imafngctgyqusx4t.jpeg?q=70",
           "price": 15.99,
-          "category": "clothes"
+          "category": "clothes",
+          "quantity": 3
         },
         {
-          "id": 3,
-          "name": "Baby Stroller - Lightweight Travel",
-          "image": "https://rukminim2.flixcart.com/image/612/612/k6ci8i80/stroller-pram/z/z/a/caramel-baby-stroller-with-5-point-safety-harness-and-reversible-original-imafzuf3cypncybk.jpeg?q=70",
-          "price": 150.00,
-          "category": "nursery"
+          "id": "1",
+          "name": "Baby Diapers - Size 1 (Pack of 120)",
+          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/diaper/6/8/z/-original-imah2sfqwhqgnpwx.jpeg?q=70",
+          "price": 25.99,
+          "category": "nutrition",
+          "quantity": 4
         },
         {
-          "id": 4,
-          "name": "Baby Bottle - Anti-Colic (Pack of 3)",
-          "image": " https://rukminim2.flixcart.com/image/612/612/xif0q/baby-bottle/g/a/n/anti-colic-slim-regular-neck-essential-baby-feeding-bottle-original-imah4gz6bskd8t7k.jpeg?q=70",
-          "price": 19.99,
-          "category": "nutrition"
-        },
-        {
-          "id": 5,
-          "name": "Baby Blanket - Soft and Cozy",
-          "image": "https://rukminim2.flixcart.com/image/612/612/ksdjma80/blanket/g/s/d/microfiber-double-bed-all-weather-comforter-200-gsm-size-45x60-original-imag5yhfkysxgpsh.jpeg?q=70",
-          "price": 29.99,
-          "category": "nursery"
-        },
-        {
-          "id": 6,
-          "name": "Baby Crib - Convertible",
-          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/cot-bassinet/q/j/2/baby-cradle-mosquito-net-jhula-palna-stroller-infant-toddler-original-imah4gzvnqd29qhz.jpeg?q=70",
-          "price": 299.99,
-          "category": "nursery"
-        },
-        {
-          "id": 7,
-          "name": "Baby Monitor - Video and Audio",
-          "image": "https://rukminim2.flixcart.com/image/612/612/kpsnzww0/baby-monitor/x/i/l/mbp-36-motorola-original-imag3ybfvkczcrcf.jpeg?q=70",
-          "price": 89.99,
-          "category": "nursery"
-        },
-        {
-          "id": 8,
-          "name": "Baby High Chair - Adjustable Height",
-          "image": "https://rukminim2.flixcart.com/image/612/612/l4d2ljk0/chair/r/w/l/2-in-1-manta-baby-high-chair-for-kids-with-2-height-adjust-baby-original-imagfa5fm5gzh75f.jpeg?q=70",
-          "price": 129.99,
-          "category": "nutrition"
-        },
-        {
-          "id": 9,
-          "name": "Baby Car Seat - Rear-Facing",
-          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/baby-carrier-cuddler/j/f/g/20-cocobee-the-safest-hip-seat-baby-carrier-with-spacious-original-imahfzunyzwryrbe.jpeg?q=70",
-          "price": 199.99,
-          "category": "nursery"
-        },
-        {
-          "id": 10,
-          "name": "Baby Pacifiers - Silicone (Pack of 2)",
-          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/teether-soother/b/s/n/1-na-baby-fruit-nibbler-with-fruit-shape-teether-for-new-born-original-imagnv4xzemzgt3g.jpeg?q=70",
-          "price": 9.99,
-          "category": "toys"
-        },
-        {
-          "id": 11,
+          "id": "11",
           "name": "Baby Bathtub - Foldable",
           "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/bath-tub/z/t/3/splash-play-baby-bath-tub-for-kids-safe-fun-and-perfect-for-1-original-imagy3gvqugzgbph.jpeg?q=70",
           "price": 39.99,
-          "category": "nursery"
+          "category": "nursery",
+          "quantity": 5
         },
         {
-          "id": 12,
-          "name": "Baby Carrier - Ergonomic Design",
-          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/baby-carrier-cuddler/f/q/a/18-high-quality-bag-with-strong-belt-4-in-1-position-4in1bcb101-original-imah46gekhn4gwzn.jpeg?q=70",
-          "price": 59.99,
-          "category": "nursery"
-        },
-        {
-          "id": 13,
-          "name": "Baby Play Mat - Soft Foam",
-          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/mat/f/u/p/extra-large-play-mat-baby-double-sided-waterproof-baby-mat-original-imah4nfngh4mdyg4.jpeg?q=70",
-          "price": 49.99,
-          "category": "toys"
-        },
-        {
-          "id": 14,
-          "name": "Baby Wipes - Fragrance-Free (Pack of 100)",
-          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/wipe/i/r/o/baby-wet-wipes-with-lid-enriched-with-aloe-vera-and-jojoba-oil-original-imagxy2hxcxwenw2.jpeg?q=70",
-          "price": 12.99,
-          "category": "nutrition"
-        },
-        {
-          "id": 15,
-          "name": "Baby Feeding Set - BPA-Free",
-          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/feeding-utensil/4/h/i/baby-feeding-set-for-kids-blue-baby-feeding-set-for-kids-blue-original-imahf6uckftwpekf.jpeg?q=70",
-          "price": 24.99,
-          "category": "nutrition"
-        },
-        {
-          "id": 16,
-          "name": "Baby Teething Toy - Silicone",
-          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/shopsy-teether-soother/u/e/k/3-apple-neem-wood-teethers-for-baby-set-of-4-for-3-months-baby-original-imah27s5zwbqw6zn.jpeg?q=70",
-          "price": 7.99,
-          "category": "toys"
-        },
-        {
-          "id": 17,
-          "name": "Baby Sleep Sack - Organic Cotton",
-          "image": "https://rukminim2.flixcart.com/image/612/612/klphn680/bedding-set/f/0/c/net-bed-pink-star-and-moon-baby-bed-baby-folding-digital-print-original-imagyrpg4pqcfkm4.jpeg?q=70",
-          "price": 34.99,
-          "category": "clothes"
-        },
-        {
-          "id": 18,
-          "name": "Baby Walker - Adjustable Height",
-          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/walker/0/q/5/-original-imahyfv8sjcw2z7z.jpeg?q=70",
-          "price": 79.99,
-          "category": "toys"
-        },
-        {
-          "id": 19,
-          "name": "Baby Bibs - Waterproof (Pack of 5)",
-          "image": "https://rukminim2.flixcart.com/image/612/612/jyafukw0/bib/q/z/w/premium-bib-soft-baby-bibs-waterproof-bib-vb-bib-b178-vbaby-original-imafgkauyvm7vwhk.jpeg?q=70",
-          "price": 14.99,
-          "category": "clothes"
-        },
-        {
-          "id": 20,
-          "name": "Baby Nail Clippers - Safety Design",
-          "image": "https://rukminim2.flixcart.com/image/612/612/l01blow0/nail-filer/t/q/k/1-baby-nail-file-grinder-set-safe-nail-trimmer-kit-for-kids-baby-original-imagbwzfejt2xuh4.jpeg?q=70",
-          "price": 5.99,
+          "id": "3",
+          "name": "Baby Stroller - Lightweight Travel",
+          "image": "https://rukminim2.flixcart.com/image/612/612/k6ci8i80/stroller-pram/z/z/a/caramel-baby-stroller-with-5-point-safety-harness-and-reversible-original-imafzuf3cypncybk.jpeg?q=70",
+          "price": 150,
           "category": "nursery"
         }
       ]
-      
-
-    
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Baby Diapers - Size 1 (Pack of 120)",
+      "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/diaper/6/8/z/-original-imah2sfqwhqgnpwx.jpeg?q=70",
+      "price": 25.99,
+      "category": "nutrition"
+    },
+    {
+      "id": "2",
+      "name": "Organic Cotton Onesie - Newborn",
+      "image": "https://rukminim2.flixcart.com/image/612/612/k4lmv0w0/bodysuit-sleepsuit/g/b/f/1-0-3-months-gwmhonesie0to3p5-mom-s-home-3-original-imafngctgyqusx4t.jpeg?q=70",
+      "price": 15.99,
+      "category": "clothes"
+    },
+    {
+      "id": "3",
+      "name": "Baby Stroller - Lightweight Travel",
+      "image": "https://rukminim2.flixcart.com/image/612/612/k6ci8i80/stroller-pram/z/z/a/caramel-baby-stroller-with-5-point-safety-harness-and-reversible-original-imafzuf3cypncybk.jpeg?q=70",
+      "price": 150,
+      "category": "nursery"
+    },
+    {
+      "id": "4",
+      "name": "Baby Bottle - Anti-Colic (Pack of 3)",
+      "image": " https://rukminim2.flixcart.com/image/612/612/xif0q/baby-bottle/g/a/n/anti-colic-slim-regular-neck-essential-baby-feeding-bottle-original-imah4gz6bskd8t7k.jpeg?q=70",
+      "price": 19.99,
+      "category": "nutrition"
+    },
+    {
+      "id": "5",
+      "name": "Baby Blanket - Soft and Cozy",
+      "image": "https://rukminim2.flixcart.com/image/612/612/ksdjma80/blanket/g/s/d/microfiber-double-bed-all-weather-comforter-200-gsm-size-45x60-original-imag5yhfkysxgpsh.jpeg?q=70",
+      "price": 29.99,
+      "category": "nursery"
+    },
+    {
+      "id": "6",
+      "name": "Baby Crib - Convertible",
+      "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/cot-bassinet/q/j/2/baby-cradle-mosquito-net-jhula-palna-stroller-infant-toddler-original-imah4gzvnqd29qhz.jpeg?q=70",
+      "price": 299.99,
+      "category": "nursery"
+    },
+    {
+      "id": "7",
+      "name": "Baby Monitor - Video and Audio",
+      "image": "https://rukminim2.flixcart.com/image/612/612/kpsnzww0/baby-monitor/x/i/l/mbp-36-motorola-original-imag3ybfvkczcrcf.jpeg?q=70",
+      "price": 89.99,
+      "category": "nursery"
+    },
+    {
+      "id": "8",
+      "name": "Baby High Chair - Adjustable Height",
+      "image": "https://rukminim2.flixcart.com/image/612/612/l4d2ljk0/chair/r/w/l/2-in-1-manta-baby-high-chair-for-kids-with-2-height-adjust-baby-original-imagfa5fm5gzh75f.jpeg?q=70",
+      "price": 129.99,
+      "category": "nutrition"
+    },
+    {
+      "id": "9",
+      "name": "Baby Car Seat - Rear-Facing",
+      "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/baby-carrier-cuddler/j/f/g/20-cocobee-the-safest-hip-seat-baby-carrier-with-spacious-original-imahfzunyzwryrbe.jpeg?q=70",
+      "price": 199.99,
+      "category": "nursery"
+    },
+    {
+      "id": "10",
+      "name": "Baby Pacifiers - Silicone (Pack of 2)",
+      "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/teether-soother/b/s/n/1-na-baby-fruit-nibbler-with-fruit-shape-teether-for-new-born-original-imagnv4xzemzgt3g.jpeg?q=70",
+      "price": 9.99,
+      "category": "toys"
+    },
+    {
+      "id": "11",
+      "name": "Baby Bathtub - Foldable",
+      "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/bath-tub/z/t/3/splash-play-baby-bath-tub-for-kids-safe-fun-and-perfect-for-1-original-imagy3gvqugzgbph.jpeg?q=70",
+      "price": 39.99,
+      "category": "nursery"
+    },
+    {
+      "id": "12",
+      "name": "Baby Carrier - Ergonomic Design",
+      "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/baby-carrier-cuddler/f/q/a/18-high-quality-bag-with-strong-belt-4-in-1-position-4in1bcb101-original-imah46gekhn4gwzn.jpeg?q=70",
+      "price": 59.99,
+      "category": "nursery"
+    },
+    {
+      "id": "13",
+      "name": "Baby Play Mat - Soft Foam",
+      "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/mat/f/u/p/extra-large-play-mat-baby-double-sided-waterproof-baby-mat-original-imah4nfngh4mdyg4.jpeg?q=70",
+      "price": 49.99,
+      "category": "toys"
+    },
+    {
+      "id": "14",
+      "name": "Baby Wipes - Fragrance-Free (Pack of 100)",
+      "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/wipe/i/r/o/baby-wet-wipes-with-lid-enriched-with-aloe-vera-and-jojoba-oil-original-imagxy2hxcxwenw2.jpeg?q=70",
+      "price": 12.99,
+      "category": "nutrition"
+    },
+    {
+      "id": "15",
+      "name": "Baby Feeding Set - BPA-Free",
+      "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/feeding-utensil/4/h/i/baby-feeding-set-for-kids-blue-baby-feeding-set-for-kids-blue-original-imahf6uckftwpekf.jpeg?q=70",
+      "price": 24.99,
+      "category": "nutrition"
+    },
+    {
+      "id": "16",
+      "name": "Baby Teething Toy - Silicone",
+      "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/shopsy-teether-soother/u/e/k/3-apple-neem-wood-teethers-for-baby-set-of-4-for-3-months-baby-original-imah27s5zwbqw6zn.jpeg?q=70",
+      "price": 7.99,
+      "category": "toys"
+    },
+    {
+      "id": "17",
+      "name": "Baby Sleep Sack - Organic Cotton",
+      "image": "https://rukminim2.flixcart.com/image/612/612/klphn680/bedding-set/f/0/c/net-bed-pink-star-and-moon-baby-bed-baby-folding-digital-print-original-imagyrpg4pqcfkm4.jpeg?q=70",
+      "price": 34.99,
+      "category": "clothes"
+    },
+    {
+      "id": "18",
+      "name": "Baby Walker - Adjustable Height",
+      "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/walker/0/q/5/-original-imahyfv8sjcw2z7z.jpeg?q=70",
+      "price": 79.99,
+      "category": "toys"
+    },
+    {
+      "id": "19",
+      "name": "Baby Bibs - Waterproof (Pack of 5)",
+      "image": "https://rukminim2.flixcart.com/image/612/612/jyafukw0/bib/q/z/w/premium-bib-soft-baby-bibs-waterproof-bib-vb-bib-b178-vbaby-original-imafgkauyvm7vwhk.jpeg?q=70",
+      "price": 14.99,
+      "category": "clothes"
+    },
+    {
+      "id": "20",
+      "name": "Baby Nail Clippers - Safety Design",
+      "image": "https://rukminim2.flixcart.com/image/612/612/l01blow0/nail-filer/t/q/k/1-baby-nail-file-grinder-set-safe-nail-trimmer-kit-for-kids-baby-original-imagbwzfejt2xuh4.jpeg?q=70",
+      "price": 5.99,
+      "category": "nursery"
+    }
+  ]
 }
