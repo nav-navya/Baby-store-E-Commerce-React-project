@@ -8,18 +8,34 @@
       "cpwd": "123456",
       "cart": [
         {
+          "id": "10",
+          "name": "Baby Pacifiers - Silicone (Pack of 2)",
+          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/teether-soother/b/s/n/1-na-baby-fruit-nibbler-with-fruit-shape-teether-for-new-born-original-imagnv4xzemzgt3g.jpeg?q=70",
+          "price": 9.99,
+          "category": "toys"
+        },
+        {
           "id": "3",
           "name": "Baby Stroller - Lightweight Travel",
           "image": "https://rukminim2.flixcart.com/image/612/612/k6ci8i80/stroller-pram/z/z/a/caramel-baby-stroller-with-5-point-safety-harness-and-reversible-original-imafzuf3cypncybk.jpeg?q=70",
           "price": 150,
           "category": "nursery"
+        }
+      ],
+      "order": [
+        {
+          "id": "10",
+          "name": "Baby Pacifiers - Silicone (Pack of 2)",
+          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/teether-soother/b/s/n/1-na-baby-fruit-nibbler-with-fruit-shape-teether-for-new-born-original-imagnv4xzemzgt3g.jpeg?q=70",
+          "price": 9.99,
+          "category": "toys"
         },
         {
-          "id": "4",
-          "name": "Baby Bottle - Anti-Colic (Pack of 3)",
-          "image": " https://rukminim2.flixcart.com/image/612/612/xif0q/baby-bottle/g/a/n/anti-colic-slim-regular-neck-essential-baby-feeding-bottle-original-imah4gz6bskd8t7k.jpeg?q=70",
-          "price": 19.99,
-          "category": "nutrition"
+          "id": "3",
+          "name": "Baby Stroller - Lightweight Travel",
+          "image": "https://rukminim2.flixcart.com/image/612/612/k6ci8i80/stroller-pram/z/z/a/caramel-baby-stroller-with-5-point-safety-harness-and-reversible-original-imafzuf3cypncybk.jpeg?q=70",
+          "price": 150,
+          "category": "nursery"
         }
       ]
     },
@@ -68,37 +84,61 @@
       "cpwd": "121212",
       "cart": [
         {
-          "id": "2",
-          "name": "Organic Cotton Onesie - Newborn",
-          "image": "https://rukminim2.flixcart.com/image/612/612/k4lmv0w0/bodysuit-sleepsuit/g/b/f/1-0-3-months-gwmhonesie0to3p5-mom-s-home-3-original-imafngctgyqusx4t.jpeg?q=70",
-          "price": 15.99,
-          "category": "clothes",
-          "quantity": 3
+          "id": "1",
+          "name": "Baby Diapers - Size 1 (Pack of 120)",
+          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/diaper/6/8/z/-original-imah2sfqwhqgnpwx.jpeg?q=70",
+          "price": 25.99,
+          "category": "nutrition",
+          "quantity": 1
         },
+        {
+          "id": "4",
+          "name": "Baby Bottle - Anti-Colic (Pack of 3)",
+          "image": " https://rukminim2.flixcart.com/image/612/612/xif0q/baby-bottle/g/a/n/anti-colic-slim-regular-neck-essential-baby-feeding-bottle-original-imah4gz6bskd8t7k.jpeg?q=70",
+          "price": 19.99,
+          "category": "nutrition",
+          "quantity": 1
+        },
+        {
+          "id": "5",
+          "name": "Baby Blanket - Soft and Cozy",
+          "image": "https://rukminim2.flixcart.com/image/612/612/ksdjma80/blanket/g/s/d/microfiber-double-bed-all-weather-comforter-200-gsm-size-45x60-original-imag5yhfkysxgpsh.jpeg?q=70",
+          "price": 29.99,
+          "category": "nursery"
+        }
+      ],
+      "order": [
         {
           "id": "1",
           "name": "Baby Diapers - Size 1 (Pack of 120)",
           "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/diaper/6/8/z/-original-imah2sfqwhqgnpwx.jpeg?q=70",
           "price": 25.99,
           "category": "nutrition",
-          "quantity": 4
+          "quantity": 1
         },
         {
-          "id": "11",
-          "name": "Baby Bathtub - Foldable",
-          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/bath-tub/z/t/3/splash-play-baby-bath-tub-for-kids-safe-fun-and-perfect-for-1-original-imagy3gvqugzgbph.jpeg?q=70",
-          "price": 39.99,
-          "category": "nursery",
-          "quantity": 5
+          "id": "4",
+          "name": "Baby Bottle - Anti-Colic (Pack of 3)",
+          "image": " https://rukminim2.flixcart.com/image/612/612/xif0q/baby-bottle/g/a/n/anti-colic-slim-regular-neck-essential-baby-feeding-bottle-original-imah4gz6bskd8t7k.jpeg?q=70",
+          "price": 19.99,
+          "category": "nutrition",
+          "quantity": 1
         },
         {
-          "id": "3",
-          "name": "Baby Stroller - Lightweight Travel",
-          "image": "https://rukminim2.flixcart.com/image/612/612/k6ci8i80/stroller-pram/z/z/a/caramel-baby-stroller-with-5-point-safety-harness-and-reversible-original-imafzuf3cypncybk.jpeg?q=70",
-          "price": 150,
+          "id": "5",
+          "name": "Baby Blanket - Soft and Cozy",
+          "image": "https://rukminim2.flixcart.com/image/612/612/ksdjma80/blanket/g/s/d/microfiber-double-bed-all-weather-comforter-200-gsm-size-45x60-original-imag5yhfkysxgpsh.jpeg?q=70",
+          "price": 29.99,
           "category": "nursery"
         }
       ]
+    },
+    {
+      "id": "65f4",
+      "fname": "dev",
+      "email": "dev@bridgeon.in",
+      "pwd": "dev@123",
+      "cpwd": "dev@123"
     }
   ],
   "products": [

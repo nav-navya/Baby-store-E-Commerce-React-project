@@ -7,6 +7,7 @@ export const ProductContext = createContext();
 const Context = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+  const [order, setOrder] = useState([]);
 
   const navigate = useNavigate()
 
@@ -25,19 +26,41 @@ const Context = ({ children }) => {
 
   const gotItem = localStorage.getItem("id")
 
+  // function loadCart(userId){
+  //   let savedcart = localStorage.getItem("cart")
+  //   if(savedcart){
+  //     setCart(savedcart)
+  //   }
+  //   else
+  //     axios.get(`http://localhost:3000/users/${userId}`)
+  //   .then((res)=>{
+  //     const userCart = res.data.cart || [];
+  //     setCart(userCart)
+  //     localStorage.setItem("cart",JSON.stringify(userCart))
+  //   })
+  // }
   function loadCart(userId){
-    let savedcart = localStorage.getItem("cart")
-    if(savedcart){
-      setCart(JSON.parse(savedcart))
+    let savedcart = localStorage.getItem("cart");
+    
+    // Check if the saved cart is a valid JSON string
+    try {
+        if(savedcart){
+            setCart(JSON.parse(savedcart));
+        } else {
+            axios.get(`http://localhost:3000/users/${userId}`)
+            .then((res) => {
+                const userCart = res.data.cart || [];
+                setCart(userCart);
+                // Store the cart as a stringified JSON
+                localStorage.setItem("cart", JSON.stringify(userCart));
+            });
+        }
+    } catch (error) {
+        console.error("Error parsing saved cart from localStorage:", error);
+        // Clear any invalid data from localStorage
+        localStorage.removeItem("cart");
     }
-    else
-      axios.get(`http://localhost:3000/users/${userId}`)
-    .then((res)=>{
-      const userCart = res.data.cart || [];
-      setCart(userCart)
-      localStorage.setItem("cart",JSON.stringify(userCart))
-    })
-  }
+}
   useEffect(()=>{
     const userId = localStorage.getItem("id");
     if(userId){
@@ -45,7 +68,84 @@ const Context = ({ children }) => {
     }
 
   },[])
+////////////////////////////////////////////////////////////////////////////////////////////////////
+  // function placeOrder(){
+  //   axios.get(`http://localhost:3000/users/${gotItem}`)
+  //   .then((res)=>{let cart=res.data.cart
+  //     let cartElem = [...cart]
+  //     axios.patch(`http://localhost:3000/users/${gotItem}`,{
+  //       order:cartElem,}
+  //       .then((res)=>{
+  //         console.log(cartElem)
+  //       })      
+  //     )
+  //   })
+  // }
 
+  // function placeOrder() {
+  //   axios.get(`http://localhost:3000/users/${gotItem}`)
+  //     .then((res) => {
+  //       let cart = res.data.cart;
+  //       let cartElem = [...cart]; 
+  
+       
+  //       axios.patch(`http://localhost:3000/users/${gotItem}`, {
+  //         order: cartElem,  
+  //       })
+  //       .then((res) => {
+  //         // console.log(cartElem);  
+  //         setOrder(cartElem);
+  //         setCart([]);
+  //         axios.patch(`http://localhost:3000/users/${gotItem}`, {
+  //         order: cartElem,  
+  //       })
+  //         console.log(order)
+  //         console.log(cart);
+  //       })
+  //       .catch((err) => {
+  //         console.error('Error with patch request:', err); 
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       console.error('Error with get request:', err); 
+  //     });
+  //     navigate('/order')
+  // }
+
+
+  // useEffect(()=>{
+  //   setOrder(cartElem)
+  // },[cartElem])
+  
+
+  function placeOrder() {
+    axios.get(`http://localhost:3000/users/${gotItem}`)
+      .then((res) => {
+        let cart = res.data.cart;
+        let cartElem = [...cart]; // Copy the cart
+  
+        // Now send the patch request
+        axios.patch(`http://localhost:3000/users/${gotItem}`, {
+          order: cartElem,  // Set the order to cartElem
+        })
+        .then((res) => {
+          console.log(cartElem);  // Log the cart elements
+        })
+        .catch((err) => {
+          console.error('Error with patch request:', err); // Error handling
+        });
+      })
+      .catch((err) => {
+        console.error('Error with get request:', err); // Error handling
+      });
+      navigate('/order')
+  }
+  
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
   function handlecart(elem) {
     const gotItem = localStorage.getItem("id");
 
@@ -77,7 +177,7 @@ const Context = ({ children }) => {
     }
 }
   return (
-    <ProductContext.Provider value={{ products, handleLogOut, handlecart, cart }}>
+    <ProductContext.Provider value={{ products, handleLogOut, handlecart, cart,setCart,placeOrder,order }}>
       {children}
     </ProductContext.Provider>
   )

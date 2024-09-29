@@ -10,6 +10,10 @@ import Context from './Components/Context/Context'
 import ViewProducts from './Components/Shop/ViewProducts'
 import ProductDetails from './Components/Shop/productDetails'
 import Cartis from './Components/Cart/Cart'
+import Paymentform from './Components/payment/paymentform'
+import Pay from './Components/payment/pay'
+import ShowOrders from './Components/Orders/ShowOrders'
+import Category from './Components/Category'
 
 // import './index.css'
 
@@ -30,8 +34,13 @@ function App() {
       <Route path='/login' element={<Register/>}></Route>
       <Route path='/viewShop' element={<ViewProducts/>}></Route>
       <Route path='/product/:id' element={<ProductDetails/>} />
-      <Route path='cart' element={<Cartis/>} />
+      <Route path='/cart' element={<Cartis/>} />
       </Route>
+      <Route path='/shipping' element={<Paymentform/>} />
+      <Route path='/payment' element={<Pay/>} />
+      <Route path='/order' element={<ShowOrders/>}/>
+      <Route path='/category' element={<Category/>}/>
+
 
   
 

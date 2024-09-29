@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ProductContext } from '../Context/Context'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , Link} from 'react-router-dom';
 
 
 const Cartis = () => {
@@ -47,12 +47,7 @@ const navigate = useNavigate();
     const removeCart = cart.filter(item=>item.id !== id)
     setCart(removeCart)
     localStorage.setItem("cart",JSON.stringify(removeCart))
-
   }
-
-  // const calculateTotal = (cart) => {
-  //   return cart.reduce((total, item) => total + item.price, 0);
-  // };
 
   const calculateTotal = (cart) => {
     return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
@@ -119,9 +114,9 @@ const navigate = useNavigate();
         <p className="text-xl font-semibold">
           Total: <span className="text-green-600">${calculateTotal(cart).toFixed(2)}</span>
         </p>
-        <button className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition duration-200">
+        <Link to='/shipping' ><button className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition duration-200">
           Proceed to Checkout
-        </button>
+        </button></Link>
       </div>
     </div>
   
