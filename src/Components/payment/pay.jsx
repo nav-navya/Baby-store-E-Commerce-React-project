@@ -3,7 +3,7 @@ import { ProductContext } from '../Context/Context';
 
 const Pay = () => {
 
-  const {placeOrder,order} = useContext(ProductContext)
+  const {placeOrder,order,setCart} = useContext(ProductContext)
   return (
    
 
@@ -120,7 +120,7 @@ const Pay = () => {
 
           <button
             type="submit"
-            className="w-full bg-pink-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-pink-700 transition duration-300" onClick={()=>placeOrder(order)}
+            className="w-full bg-pink-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-pink-700 transition duration-300" onClick={()=>placeOrder(order) }
           >
             Place Order
           </button>

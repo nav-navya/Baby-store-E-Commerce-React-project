@@ -4,10 +4,10 @@ import Main from './MainImg'
 
 const Home = () => {
   return (
-    <div>
+    <div >
       {/* <Navbar/> */}
       <Main/>
-      Home
+     
     </div>
   )
 }

@@ -33,7 +33,7 @@ const Navbar = () => {
         <ul className=' hidden md:flex space-x-12'>
           <NavLink to='/cart'><li className='text-white '><FaShoppingCart /></li></NavLink>
           <NavLink to='/'><li className='text-white '>Home</li></NavLink>
-          <NavLink to='viewShop' ><li className='text-white '>Shop</li></NavLink>
+          <NavLink to='category' ><li className='text-white '>Shop</li></NavLink>
           <NavLink to='About' ><li className='text-white '>About Us</li></NavLink>
           <NavLink to='Contact' ><li className='text-white '>Contact Us</li></NavLink>
           {
@@ -47,8 +47,8 @@ const Navbar = () => {
 
         {isMenuOpen ? (
           <ul className='flex flex-col md:hidden'>
-            <NavLink to='/home'><li className='text-white py-4'>Home</li></NavLink>
-          <NavLink to='Shop' ><li className='text-white py-4'>Shop</li></NavLink>
+            <NavLink to='/'><li className='text-white py-4'>Home</li></NavLink>
+          <NavLink to='category' ><li className='text-white py-4'>Shop</li></NavLink>
           <NavLink to='About' ><li className='text-white py-4'>About Us</li></NavLink>
           
           <NavLink to='Contact' ><li className='text-white py-4'>Contact Us</li></NavLink>

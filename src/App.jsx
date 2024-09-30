@@ -35,6 +35,7 @@ function App() {
       <Route path='/viewShop' element={<ViewProducts/>}></Route>
       <Route path='/product/:id' element={<ProductDetails/>} />
       <Route path='/cart' element={<Cartis/>} />
+      <Route path='/category' element={<Category/>}/>
       </Route>
       <Route path='/shipping' element={<Paymentform/>} />
       <Route path='/payment' element={<Pay/>} />

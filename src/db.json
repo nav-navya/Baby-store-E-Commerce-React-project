@@ -8,33 +8,33 @@
       "cpwd": "123456",
       "cart": [
         {
-          "id": "10",
-          "name": "Baby Pacifiers - Silicone (Pack of 2)",
-          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/teether-soother/b/s/n/1-na-baby-fruit-nibbler-with-fruit-shape-teether-for-new-born-original-imagnv4xzemzgt3g.jpeg?q=70",
-          "price": 9.99,
-          "category": "toys"
+          "id": "4",
+          "name": "Baby Bottle - Anti-Colic (Pack of 3)",
+          "image": " https://rukminim2.flixcart.com/image/612/612/xif0q/baby-bottle/g/a/n/anti-colic-slim-regular-neck-essential-baby-feeding-bottle-original-imah4gz6bskd8t7k.jpeg?q=70",
+          "price": 19.99,
+          "category": "nutrition"
         },
         {
-          "id": "3",
-          "name": "Baby Stroller - Lightweight Travel",
-          "image": "https://rukminim2.flixcart.com/image/612/612/k6ci8i80/stroller-pram/z/z/a/caramel-baby-stroller-with-5-point-safety-harness-and-reversible-original-imafzuf3cypncybk.jpeg?q=70",
-          "price": 150,
+          "id": "5",
+          "name": "Baby Blanket - Soft and Cozy",
+          "image": "https://rukminim2.flixcart.com/image/612/612/ksdjma80/blanket/g/s/d/microfiber-double-bed-all-weather-comforter-200-gsm-size-45x60-original-imag5yhfkysxgpsh.jpeg?q=70",
+          "price": 29.99,
           "category": "nursery"
         }
       ],
       "order": [
         {
-          "id": "10",
-          "name": "Baby Pacifiers - Silicone (Pack of 2)",
-          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/teether-soother/b/s/n/1-na-baby-fruit-nibbler-with-fruit-shape-teether-for-new-born-original-imagnv4xzemzgt3g.jpeg?q=70",
-          "price": 9.99,
-          "category": "toys"
+          "id": "4",
+          "name": "Baby Bottle - Anti-Colic (Pack of 3)",
+          "image": " https://rukminim2.flixcart.com/image/612/612/xif0q/baby-bottle/g/a/n/anti-colic-slim-regular-neck-essential-baby-feeding-bottle-original-imah4gz6bskd8t7k.jpeg?q=70",
+          "price": 19.99,
+          "category": "nutrition"
         },
         {
-          "id": "3",
-          "name": "Baby Stroller - Lightweight Travel",
-          "image": "https://rukminim2.flixcart.com/image/612/612/k6ci8i80/stroller-pram/z/z/a/caramel-baby-stroller-with-5-point-safety-harness-and-reversible-original-imafzuf3cypncybk.jpeg?q=70",
-          "price": 150,
+          "id": "5",
+          "name": "Baby Blanket - Soft and Cozy",
+          "image": "https://rukminim2.flixcart.com/image/612/612/ksdjma80/blanket/g/s/d/microfiber-double-bed-all-weather-comforter-200-gsm-size-45x60-original-imag5yhfkysxgpsh.jpeg?q=70",
+          "price": 29.99,
           "category": "nursery"
         }
       ]

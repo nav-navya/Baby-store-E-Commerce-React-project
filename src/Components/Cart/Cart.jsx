@@ -7,6 +7,7 @@ import { useNavigate , Link} from 'react-router-dom';
 const Cartis = () => {
 const [cart, setCart] = useState([]);
 const navigate = useNavigate();
+const [quantity , setQuantity] = useState(1);
 
   // const { cart } = useContext(ProductContext) //1)if user already has a cart, get the cart
   function loadCart(userId){
@@ -41,17 +42,25 @@ const navigate = useNavigate();
     }
   },[navigate])
 
-
+const user = localStorage.getItem("id");
 // handling remove from cart
   function handleRemove(id){
     const removeCart = cart.filter(item=>item.id !== id)
     setCart(removeCart)
+    axios.patch(`http://localhost:3000/users/${user}`,{cart:removeCart})
+
+
     localStorage.setItem("cart",JSON.stringify(removeCart))
   }
 
   const calculateTotal = (cart) => {
-    return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+    return cart.reduce((total, item) => {
+      const price = parseFloat(item.price) || 0;
+      const quantity = parseInt(item.quantity) || 0;
+      return total + (price * quantity);
+    }, 0);
   };
+  
 
 // quantity increase and decrease 
   function handleQuantityChange(id,change){ //id of the product
@@ -61,6 +70,8 @@ const navigate = useNavigate();
         return { ...item, quantity: Math.max(newQuantity, 1) }; // Prevent quantity from going below 1
       }
       return item;
+
+
     });
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));

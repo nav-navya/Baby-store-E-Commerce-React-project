@@ -69,54 +69,6 @@ const Context = ({ children }) => {
 
   },[])
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-  // function placeOrder(){
-  //   axios.get(`http://localhost:3000/users/${gotItem}`)
-  //   .then((res)=>{let cart=res.data.cart
-  //     let cartElem = [...cart]
-  //     axios.patch(`http://localhost:3000/users/${gotItem}`,{
-  //       order:cartElem,}
-  //       .then((res)=>{
-  //         console.log(cartElem)
-  //       })      
-  //     )
-  //   })
-  // }
-
-  // function placeOrder() {
-  //   axios.get(`http://localhost:3000/users/${gotItem}`)
-  //     .then((res) => {
-  //       let cart = res.data.cart;
-  //       let cartElem = [...cart]; 
-  
-       
-  //       axios.patch(`http://localhost:3000/users/${gotItem}`, {
-  //         order: cartElem,  
-  //       })
-  //       .then((res) => {
-  //         // console.log(cartElem);  
-  //         setOrder(cartElem);
-  //         setCart([]);
-  //         axios.patch(`http://localhost:3000/users/${gotItem}`, {
-  //         order: cartElem,  
-  //       })
-  //         console.log(order)
-  //         console.log(cart);
-  //       })
-  //       .catch((err) => {
-  //         console.error('Error with patch request:', err); 
-  //       });
-  //     })
-  //     .catch((err) => {
-  //       console.error('Error with get request:', err); 
-  //     });
-  //     navigate('/order')
-  // }
-
-
-  // useEffect(()=>{
-  //   setOrder(cartElem)
-  // },[cartElem])
-  
 
   function placeOrder() {
     axios.get(`http://localhost:3000/users/${gotItem}`)
@@ -139,6 +91,7 @@ const Context = ({ children }) => {
         console.error('Error with get request:', err); // Error handling
       });
       navigate('/order')
+
   }
   
 
