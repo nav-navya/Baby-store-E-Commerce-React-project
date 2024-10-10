@@ -7,7 +7,9 @@ const LoginSignup = () => {
     fname: '',
     email: '',
     pwd: '',
-    cpwd: ''
+    cpwd: '',
+    isBlock : false
+
   });
 
   const [errors, setErrors] = useState({});
@@ -59,7 +61,7 @@ const LoginSignup = () => {
       
     }
   };
-
+  
   return (
     <div className='w-screen h-dvh bg-slate-800 flex items-center justify-center'>
       <div className='w-full sm:w-3/4 md:w-1/2 lg:w-1/3 h-3/4 bg-cyan-100 rounded-lg flex-col flex justify-center items-center p-4'>

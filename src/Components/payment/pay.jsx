@@ -1,9 +1,18 @@
 import React, { useContext } from 'react'
 import { ProductContext } from '../Context/Context';
+import { useNavigate } from 'react-router-dom';
+
 
 const Pay = () => {
 
-  const {placeOrder,order,setCart} = useContext(ProductContext)
+  const {placeOrder} = useContext(ProductContext)
+  const navigate = useNavigate(); // Hook for navigation
+
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+    await placeOrder(navigate); // Pass the navigate function to the placeOrder
+  };
+  
   return (
    
 
@@ -14,7 +23,7 @@ const Pay = () => {
           Payment Information
         </h2>
 
-        <form action="#" method="POST">
+        <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <p
               className="block text-gray-700 text-sm font-bold mb-2"
@@ -28,7 +37,7 @@ const Pay = () => {
               name="cardName"
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-pink-500"
               placeholder="John Doe"
-              required
+              
             />
           </div>
 
@@ -45,7 +54,7 @@ const Pay = () => {
               name="cardNumber"
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-pink-500"
               placeholder="1234 5678 9101 1121"
-              required
+              
             />
           </div>
 
@@ -63,7 +72,7 @@ const Pay = () => {
                 name="expiry"
                 className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-pink-500"
                 placeholder="MM/YY"
-                required
+                
               />
             </div>
             <div>
@@ -79,7 +88,7 @@ const Pay = () => {
                 name="cvv"
                 className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-pink-500"
                 placeholder="123"
-                required
+                
               />
             </div>
           </div>
@@ -97,7 +106,7 @@ const Pay = () => {
               name="address"
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-pink-500"
               placeholder="123 Main St"
-              required
+              
             />
           </div>
 
@@ -114,14 +123,13 @@ const Pay = () => {
               name="zip"
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-pink-500"
               placeholder="12345"
-              required
+              
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-pink-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-pink-700 transition duration-300" onClick={()=>placeOrder(order) }
-          >
+            className="w-full bg-pink-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-pink-700 transition duration-300" >
             Place Order
           </button>
         </form>
