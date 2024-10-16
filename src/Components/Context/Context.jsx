@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom';
+import { replace, useNavigate } from 'react-router-dom';
 
 export const ProductContext = createContext();
 
@@ -11,15 +11,17 @@ const Context = ({ children }) => {
   const [editingProduct, setEditingProduct] = useState(null);
   const [users, setUsers] = useState([]);
   const [quantity, setquantity] = useState(1);
+  const [cartLength , setCartLength] = useState(0);
 
 
   const navigate = useNavigate()
 
   function handleLogOut() {
-    navigate('/register')
+    navigate('/', { replace: true })
     localStorage.removeItem("id")
     localStorage.removeItem("isLoggedin")
     localStorage.removeItem("cart")
+    localStorage.removeItem("isBlock")
   }
 
   useEffect(() => {
@@ -31,7 +33,6 @@ const Context = ({ children }) => {
   const gotItem = localStorage.getItem("id")
 
 
-  
 
 
 
@@ -42,7 +43,8 @@ const Context = ({ children }) => {
 
 
 
-  
+
+
   function loadCart(userId) {
     let savedcart = localStorage.getItem("cart");
 
@@ -101,49 +103,49 @@ const Context = ({ children }) => {
 
   ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  
+
   async function placeOrder() {
     const gotItem = localStorage.getItem("id"); // Get the user ID
 
     try {
-        // Load the cart and fetch user data
-        const userResponse = await axios.get(`http://localhost:3000/users/${gotItem}`);
-        const userData = userResponse.data;
+      // Load the cart and fetch user data
+      const userResponse = await axios.get(`http://localhost:3000/users/${gotItem}`);
+      const userData = userResponse.data;
 
-        // Create new order
-        const newOrder = {
-            orderId: new Date().toISOString(),
-            products: userData.cart,
-            orderDate: new Date(),
-            status: "Paid",
-        };
+      // Create new order
+      const newOrder = {
+        orderId: new Date().toISOString(),
+        products: userData.cart,
+        orderDate: new Date(),
+        status: "Paid",
+      };
 
-        // Update user data with new order and clear the cart
-        const newUserData = {
-            ...userData,
-            order: [...(userData.order || []), newOrder],
-            cart: [],
-        };
+      // Update user data with new order and clear the cart
+      const newUserData = {
+        ...userData,
+        order: [...(userData.order || []), newOrder],
+        cart: [],
+      };
 
-        // Send updated user data to the server
-        const updateResponse = await axios.put(`http://localhost:3000/users/${gotItem}`, newUserData);
-        console.log('Order placed successfully:', updateResponse.data);
+      // Send updated user data to the server
+      const updateResponse = await axios.put(`http://localhost:3000/users/${gotItem}`, newUserData);
+      console.log('Order placed successfully:', updateResponse.data);
 
-        if(updateResponse.status === 200){
-          localStorage.setItem("cart",[]);
-          alert("Payment Successful")
-          navigate('/order')
-        }
+      if (updateResponse.status === 200) {
+        localStorage.setItem("cart", []);
+        alert("Payment Successful")
+        navigate('/order')
+      }
 
-        // Optionally handle response or show a success message
-        // setOrder(newOrders);
+      // Optionally handle response or show a success message
+      // setOrder(newOrders);
 
     } catch (err) {
-        console.error('Error during the order process:', err);
+      console.error('Error during the order process:', err);
     }
 
     // Navigate to the order page
-}
+  }
 
 
 
@@ -168,32 +170,36 @@ const Context = ({ children }) => {
   }
   ///////////////////////admin delete user//////////////////////////////////
 
-     
-    const adminDeleteUser = async(id)=>{
-      try{
-        const response = await axios.delete(`http://localhost:3000/users/${id}`);
-        if(response.status === 200){
-          setUsers(users.filter(user=>user.id!== id))
-            alert("deleted succesfully")
-          
 
-        }
-      }catch(err){
-        console.log("error occured",err)
+  const adminDeleteUser = async (id) => {
+    try {
+      const response = await axios.delete(`http://localhost:3000/users/${id}`);
+      if (response.status === 200) {
+        setUsers(users.filter(user => user.id !== id))
+        alert("deleted succesfully")
+
+
       }
-    
+    } catch (err) {
+      console.log("error occured", err)
     }
 
-  
+  }
+
+
 
 
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////
   function handlecart(elem) {
     const gotItem = localStorage.getItem("id");
+    const blockedStatus = localStorage.getItem("isBlock")
 
     if (!gotItem) {
       alert("Please log in.");
+    } else if (blockedStatus === "true") {
+      alert("please contact Admin")
+
     } else {
       let isPresent = cart.some((item) => item.id === elem.id);//some() returns true or false
 
@@ -209,6 +215,9 @@ const Context = ({ children }) => {
             setCart(updatedCart);
             localStorage.setItem("cart", JSON.stringify(updatedCart));
             alert("Cart added successfully.");
+            const length = updatedCart.length;
+            setCartLength(length)
+
           })
           .catch((err) => {
             console.error(err);
@@ -240,7 +249,7 @@ const Context = ({ children }) => {
 
 
   return (
-    <ProductContext.Provider value={{ products, handleLogOut, handlecart, cart, setCart, placeOrder, order, setProducts, handleEditSubmit, users,setUsers, adminDeleteUser }}>
+    <ProductContext.Provider value={{ products, handleLogOut, handlecart, cart, setCart, placeOrder, order, setProducts, handleEditSubmit, users, setUsers, adminDeleteUser,cartLength }}>
       {children}
     </ProductContext.Provider>
   )

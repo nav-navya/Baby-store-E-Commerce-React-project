@@ -52,7 +52,7 @@ const AdminViewProducts = () => {
             <div className='mt-5'>
             <button className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300 ease-in-out" onClick={()=>navigate(`/admin/EditProducts/${product.id}`)}>Edit</button>
 
-            <button className="bg-red-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-red-600 transition duration-300 ease-in-out ml-2" onClick={()=>AdminDeleteProduct(user.id)}>Deletess</button>
+            <button className="bg-red-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-red-600 transition duration-300 ease-in-out ml-2" onClick={()=>AdminDeleteProduct(product.id)}>Deletess</button>
             </div>
             
             {/* <Link to={`/product/${product.id}`}>

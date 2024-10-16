@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { MdOutlineDashboard } from "react-icons/md";
 import { RiSettings4Line } from "react-icons/ri";
@@ -8,19 +8,21 @@ import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
 import { FiMessageSquare, FiFolder, FiShoppingCart } from "react-icons/fi";
 import { Link, Outlet } from "react-router-dom";
 import Dashboard from "./Dashboard";
+import { ProductContext } from "../Components/Context/Context";
 
 
 const AdminHome = () => {
+  const { handleLogOut } = useContext(ProductContext)
   const menus = [
     { name: "dashboard", link: "/admin/Dashboard", icon: MdOutlineDashboard },
     { name: "user", link: "/admin/User", icon: AiOutlineUser },
     { name: "products", link: "/admin/AdminViewProducts", icon: FiShoppingCart },
-    // {name:'orders',link:"/admin/AdminViewOrders"}
+    { name: 'orders', link: "/admin/AdminViewOrders", icon: FiShoppingCart }
 
   ];
   const [open, setOpen] = useState(true);
   return (
-   
+
     <>
       <section className="fixed">
         <div
@@ -60,6 +62,7 @@ const AdminHome = () => {
                 </h2>
               </Link>
             ))}
+            <button onClick={handleLogOut}>Logout</button>
           </div>
         </div>
         {/* <div className="text-xl text-gray-900 font-semibold bg-fuchsia-500 w-full">

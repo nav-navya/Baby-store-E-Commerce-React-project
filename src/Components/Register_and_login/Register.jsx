@@ -49,10 +49,20 @@ const Register = () => {
           if (user) {
             if (user.pwd === formData.pwd) {
               alert("Login Successfully");
+              if(user.isAdmin )
+              {
+                navigate(`/admin/Dashboard`)
+              }
+              else{
+
+              
               navigate('/')
               localStorage.setItem("isLoggedin",true)
               localStorage.setItem("id",user.id)
               localStorage.setItem("cart",[])
+              localStorage.setItem("isBlock",user.isBlock)
+            }
+              
               
             } else {
               setErrors({ ...validationError, pwd: "Wrong password" });

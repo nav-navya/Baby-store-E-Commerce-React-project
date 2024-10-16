@@ -20,6 +20,7 @@ import User from './Admin/User'
 import AdminViewProducts from './Admin/ViewProducts'
 import AdminHome from './Admin/AdminSidebar'
 import EditProduct from './Admin/EditProduct'
+import AdminViewOrders from './Admin/AdminViewOrders'
 // import UsersList from './Admin/AdminEditUser'
 // import './index.css'
 
@@ -53,11 +54,7 @@ function App() {
             <Route path='/admin/AdminViewProducts' element={<AdminViewProducts />} />
             <Route path='/admin/EditProducts/:id' element={<EditProduct />} />
             {/* <Route path='/admin/Users/' element={<UsersList />} /> */}
-            
-
-            
-            
-
+            <Route path='/admin/AdminViewOrders' element={<AdminViewOrders/>}/>
           </Route>
 
 

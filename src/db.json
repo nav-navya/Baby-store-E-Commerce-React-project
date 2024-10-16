@@ -1,6 +1,13 @@
 {
   "users": [
     {
+      "id": 1,
+      "fname": "Admin",
+      "email": "admin@gmail.com",
+      "pwd": "12345678",
+      "isAdmin": true
+    },
+    {
       "id": "03b8",
       "fname": "Navya",
       "email": "navya@gmail.com",
@@ -107,6 +114,29 @@
           ],
           "orderDate": "2024-10-10T02:49:25.178Z",
           "status": "Paid"
+        },
+        {
+          "orderId": "2024-10-11T10:22:04.611Z",
+          "products": [
+            {
+              "id": "7",
+              "name": "Baby Monitor - Video and Audio",
+              "image": "https://rukminim2.flixcart.com/image/612/612/kpsnzww0/baby-monitor/x/i/l/mbp-36-motorola-original-imag3ybfvkczcrcf.jpeg?q=70",
+              "price": 89.99,
+              "category": "nursery",
+              "quantity": 1
+            },
+            {
+              "id": "14",
+              "name": "Baby Wipes - Fragrance-Free (Pack of 100)",
+              "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/wipe/i/r/o/baby-wet-wipes-with-lid-enriched-with-aloe-vera-and-jojoba-oil-original-imagxy2hxcxwenw2.jpeg?q=70",
+              "price": 12.99,
+              "category": "nutrition",
+              "quantity": 2
+            }
+          ],
+          "orderDate": "2024-10-11T10:22:04.611Z",
+          "status": "Paid"
         }
       ]
     },
@@ -150,7 +180,57 @@
       "email": "jeeva@gmail.com",
       "pwd": "345678",
       "cpwd": "345678",
-      "isBlock": false
+      "isBlock": false,
+      "cart": [
+        {
+          "id": "7",
+          "name": "Baby Monitor - Video and Audio",
+          "image": "https://rukminim2.flixcart.com/image/612/612/kpsnzww0/baby-monitor/x/i/l/mbp-36-motorola-original-imag3ybfvkczcrcf.jpeg?q=70",
+          "price": 89.99,
+          "category": "nursery",
+          "quantity": 1
+        },
+        {
+          "id": "5",
+          "name": "Baby Blanket - Soft and Cozy",
+          "image": "https://rukminim2.flixcart.com/image/612/612/ksdjma80/blanket/g/s/d/microfiber-double-bed-all-weather-comforter-200-gsm-size-45x60-original-imag5yhfkysxgpsh.jpeg?q=70",
+          "price": "39.99",
+          "category": "nursery",
+          "quantity": 1
+        },
+        {
+          "id": "4",
+          "name": "Baby Bottle - Anti-Colic (Pack of 3)",
+          "image": " https://rukminim2.flixcart.com/image/612/612/xif0q/baby-bottle/g/a/n/anti-colic-slim-regular-neck-essential-baby-feeding-bottle-original-imah4gz6bskd8t7k.jpeg?q=70",
+          "price": "49.99",
+          "category": "nutrition",
+          "quantity": 1
+        },
+        {
+          "id": "8",
+          "name": "Baby High Chair - Adjustable Height",
+          "image": "https://rukminim2.flixcart.com/image/612/612/l4d2ljk0/chair/r/w/l/2-in-1-manta-baby-high-chair-for-kids-with-2-height-adjust-baby-original-imagfa5fm5gzh75f.jpeg?q=70",
+          "price": 129.99,
+          "category": "nutrition",
+          "quantity": 1
+        },
+        {
+          "id": "9",
+          "name": "Baby Car Seat - Rear-Facing",
+          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/baby-carrier-cuddler/j/f/g/20-cocobee-the-safest-hip-seat-baby-carrier-with-spacious-original-imahfzunyzwryrbe.jpeg?q=70",
+          "price": 199.99,
+          "category": "nursery",
+          "quantity": 1
+        },
+        {
+          "id": "6",
+          "name": "Baby Crib - Convertible",
+          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/cot-bassinet/q/j/2/baby-cradle-mosquito-net-jhula-palna-stroller-infant-toddler-original-imah4gzvnqd29qhz.jpeg?q=70",
+          "price": 299.99,
+          "category": "nursery",
+          "quantity": 1
+        }
+      ]
     },
     {
       "id": "2177",
@@ -161,38 +241,37 @@
       "isBlock": false,
       "cart": [
         {
-          "id": "12",
-          "name": "Baby Carrier - Ergonomic Design",
-          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/baby-carrier-cuddler/f/q/a/18-high-quality-bag-with-strong-belt-4-in-1-position-4in1bcb101-original-imah46gekhn4gwzn.jpeg?q=70",
-          "price": 59.99,
+          "id": "9",
+          "name": "Baby Car Seat - Rear-Facing",
+          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/baby-carrier-cuddler/j/f/g/20-cocobee-the-safest-hip-seat-baby-carrier-with-spacious-original-imahfzunyzwryrbe.jpeg?q=70",
+          "price": 199.99,
           "category": "nursery",
-          "quantity": 6
-        },
-        {
-          "id": "5",
-          "name": "Baby Blanket - Soft and Cozy",
-          "image": "https://rukminim2.flixcart.com/image/612/612/ksdjma80/blanket/g/s/d/microfiber-double-bed-all-weather-comforter-200-gsm-size-45x60-original-imag5yhfkysxgpsh.jpeg?q=70",
-          "price": "39.99",
-          "category": "nursery",
-          "quantity": 4
+          "quantity": 1
         }
       ],
       "order": [
         {
-          "id": "12",
-          "name": "Baby Carrier - Ergonomic Design",
-          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/baby-carrier-cuddler/f/q/a/18-high-quality-bag-with-strong-belt-4-in-1-position-4in1bcb101-original-imah46gekhn4gwzn.jpeg?q=70",
-          "price": 59.99,
-          "category": "nursery",
-          "quantity": 6
-        },
-        {
-          "id": "5",
-          "name": "Baby Blanket - Soft and Cozy",
-          "image": "https://rukminim2.flixcart.com/image/612/612/ksdjma80/blanket/g/s/d/microfiber-double-bed-all-weather-comforter-200-gsm-size-45x60-original-imag5yhfkysxgpsh.jpeg?q=70",
-          "price": "39.99",
-          "category": "nursery",
-          "quantity": 1
+          "orderId": "2024-10-11T02:52:15.657Z",
+          "products": [
+            {
+              "id": "12",
+              "name": "Baby Carrier - Ergonomic Design",
+              "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/baby-carrier-cuddler/f/q/a/18-high-quality-bag-with-strong-belt-4-in-1-position-4in1bcb101-original-imah46gekhn4gwzn.jpeg?q=70",
+              "price": 59.99,
+              "category": "nursery",
+              "quantity": 6
+            },
+            {
+              "id": "5",
+              "name": "Baby Blanket - Soft and Cozy",
+              "image": "https://rukminim2.flixcart.com/image/612/612/ksdjma80/blanket/g/s/d/microfiber-double-bed-all-weather-comforter-200-gsm-size-45x60-original-imag5yhfkysxgpsh.jpeg?q=70",
+              "price": "39.99",
+              "category": "nursery",
+              "quantity": 4
+            }
+          ],
+          "orderDate": "2024-10-11T02:52:15.658Z",
+          "status": "Paid"
         }
       ],
       "orders": [
@@ -266,7 +345,7 @@
           "quantity": 1
         }
       ],
-      "order": [
+      "orders": [
         {
           "id": "4",
           "name": "Baby Bottle - Anti-Colic (Pack of 3)",
@@ -286,22 +365,22 @@
       ]
     },
     {
-      "id": "732a",
-      "fname": "navv",
-      "email": "nav12@gmail.com",
+      "id": "38bc",
+      "fname": "userone",
+      "email": "userone@gmail.com",
       "pwd": "12345678",
       "cpwd": "12345678",
-      "isBlock": true,
+      "isBlock": false,
       "cart": [],
       "order": [
         {
-          "orderId": "2024-10-10T10:42:10.019Z",
+          "orderId": "2024-10-11T10:49:03.672Z",
           "products": [
             {
               "id": "5",
               "name": "Baby Blanket - Soft and Cozy",
               "image": "https://rukminim2.flixcart.com/image/612/612/ksdjma80/blanket/g/s/d/microfiber-double-bed-all-weather-comforter-200-gsm-size-45x60-original-imag5yhfkysxgpsh.jpeg?q=70",
-              "price": "39.99",
+              "price": "29.99",
               "category": "nursery",
               "quantity": 2
             },
@@ -314,7 +393,7 @@
               "quantity": 2
             }
           ],
-          "orderDate": "2024-10-10T10:42:10.019Z",
+          "orderDate": "2024-10-11T10:49:03.673Z",
           "status": "Paid"
         }
       ]
@@ -333,7 +412,7 @@
       "id": "5",
       "name": "Baby Blanket - Soft and Cozy",
       "image": "https://rukminim2.flixcart.com/image/612/612/ksdjma80/blanket/g/s/d/microfiber-double-bed-all-weather-comforter-200-gsm-size-45x60-original-imag5yhfkysxgpsh.jpeg?q=70",
-      "price": "39.99",
+      "price": "29.99",
       "category": "nursery",
       "quantity": 1
     },
@@ -410,14 +489,6 @@
       "quantity": 1
     },
     {
-      "id": "15",
-      "name": "Baby Feeding Set - BPA-Free",
-      "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/feeding-utensil/4/h/i/baby-feeding-set-for-kids-blue-baby-feeding-set-for-kids-blue-original-imahf6uckftwpekf.jpeg?q=70",
-      "price": 24.99,
-      "category": "nutrition",
-      "quantity": 1
-    },
-    {
       "id": "16",
       "name": "Baby Teething Toy - Silicone",
       "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/shopsy-teether-soother/u/e/k/3-apple-neem-wood-teethers-for-baby-set-of-4-for-3-months-baby-original-imah27s5zwbqw6zn.jpeg?q=70",
@@ -447,14 +518,6 @@
       "image": "https://rukminim2.flixcart.com/image/612/612/jyafukw0/bib/q/z/w/premium-bib-soft-baby-bibs-waterproof-bib-vb-bib-b178-vbaby-original-imafgkauyvm7vwhk.jpeg?q=70",
       "price": 14.99,
       "category": "clothes",
-      "quantity": 1
-    },
-    {
-      "id": "20",
-      "name": "Baby Nail Clippers - Safety Design",
-      "image": "https://rukminim2.flixcart.com/image/612/612/l01blow0/nail-filer/t/q/k/1-baby-nail-file-grinder-set-safe-nail-trimmer-kit-for-kids-baby-original-imagbwzfejt2xuh4.jpeg?q=70",
-      "price": 5.99,
-      "category": "nursery",
       "quantity": 1
     }
   ]
