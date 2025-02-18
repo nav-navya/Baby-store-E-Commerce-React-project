@@ -1,331 +1,170 @@
-// import React, { useContext, useEffect, useState } from 'react'
-// import { ProductContext } from '../Context/Context'
-// import axios from 'axios'
-// import { useNavigate, Link } from 'react-router-dom';
 
-
-// const Cartis = () => {
-//   const [cart, setCart] = useState([]);
-//   const navigate = useNavigate();
-//   const [quantity, setQuantity] = useState(1);
-//   const [order, setOrder] = useState([])
-
-
-//   // const { cart } = useContext(ProductContext) //1)if user already has a cart, get the cart
-//   function loadCart(userId) {
-//     const savedcart = localStorage.getItem("cart")
-//     if (savedcart) {
-//       try {
-//         setCart(JSON.parse(savedcart));
-//       }
-//       catch (error) {
-//         console.error("Error parsing saved cart:", error);
-//         localStorage.removeItem("cart");
-//       }
-//     }
-//     else
-//       axios.get(`http://localhost:3000/users/${userId}`)
-//         .then((res) => {
-//           const userCart = res.data.cart || [];//array works when new signup occurs and cart is empty
-
-//           setCart(userCart)
-//           localStorage.setItem("cart", JSON.stringify(userCart))
-//         })
-//         .catch((err) => console.log(err))
-//   }
-
-//   useEffect(() => {
-//     const userId = localStorage.getItem("id");
-//     if (userId) {
-//       loadCart(userId);
-//     }
-//     else {
-//       alert("Please log in..")
-//       navigate('/login')
-//     }
-//   }, [navigate])
-//   /////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//   const user = localStorage.getItem("id");
-//   // handling remove from cart
-//   function handleRemove(id) {
-//     const removeCart = cart.filter(item => item.id !== id)
-//     setCart(removeCart)
-//     axios.patch(`http://localhost:3000/users/${user}`, { cart: removeCart })
-//     localStorage.setItem("cart", JSON.stringify(removeCart))
-//   }
-
-//   function handleremoveorder(id) {
-//     const removeOrder = order.filter(item => item.id !== id)
-//     setOrder(removeOrder)
-//     axios.patch(`http://localhost:3000/users/${user}`, { order: removeOrder })
-//     localStorage.setItem("order", JSON.stringify(removeOrder))
-//     setCart([]);
-//   }
-
-//   const calculateTotal = (cart) => {
-//     return cart.reduce((total, item) => {
-//       const price = parseFloat(item.price) || 0;
-//       const quantity = parseInt(item.quantity) || 0;
-//       return total + (price * quantity);
-//     }, 0);
-//   };
-
-
-//   // quantity increase and decrease 
-//   function handleQuantityChange(id, change) { //id of the product
-//     // axios.patch(`http://localhost:3000/users/${user}`)
-//     const updatedCart = cart.map(item => {
-//       if (item.id === id) {
-//         const newQuantity = item.quantity + change;
-
-//         return { ...item, quantity: Math.max(newQuantity, 1) }; // Prevent quantity from going below 1
-//       }
-//       return item;
-//     });
-
-//     setCart(updatedCart);
-//     localStorage.setItem("cart", JSON.stringify(updatedCart))
-//     const itemToUpdate = updatedCart.find(item => item.id === id);
-//     axios.patch(`http://localhost:3000/users/${userId}`, {
-//       quantity: itemToUpdate.quantity
-//     })
-
-//   }
-
-//   return (
-
-//     <div className="max-w-3xl mx-auto p-6 border border-gray-300 rounded-lg bg-white shadow-md">
-//       <h2 className="text-2xl font-semibold text-center mb-4">Your Shopping Cart</h2>
-//       {cart.length > 0 ? (
-//         <div className="space-y-4">
-//           {cart.map((item, index) => (
-//             <div className="flex items-center p-4 border-b border-gray-200" key={index}>
-//               {item.image && (
-//                 <img src={item.image} alt={item.title || "Product"} className="w-20 h-20 object-cover mr-4" />
-//               )}
-//               <div className="flex-grow">
-//                 <h3 className="text-lg font-medium">{item.title}</h3>
-//                 <p className="text-gray-600">${item.price} x {item.quantity}</p>
-//               </div>
-//               <div className="flex items-center space-x-2">
-//                 <button
-//                   className="bg-gray-300 text-black py-1 px-2 rounded hover:bg-gray-400"
-//                   onClick={() => handleQuantityChange(item.id, -1)}
-//                 >
-//                   -
-//                 </button>
-//                 <span>{item.quantity}</span>
-//                 <button
-//                   className="bg-gray-300 text-black py-1 px-2 rounded hover:bg-gray-400"
-//                   onClick={() => handleQuantityChange(item.id, 1)}
-//                 >
-//                   +
-//                 </button>
-//                 <button
-//                   className="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600 transition duration-200"
-//                   onClick={() => handleRemove(item.id)}
-//                 >
-//                   Remove
-//                 </button>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       ) : (
-//         <p className="text-center text-gray-500">No items in the cart</p>
-//       )}
-//       <div className="mt-4 flex justify-between items-center">
-//         <p className="text-xl font-semibold">
-//           Total: <span className="text-green-600">${calculateTotal(cart).toFixed(2)}</span>
-//         </p>
-//         <div>
-//           {cart.length > 0 && (
-//             <Link to='/shipping' ><button className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition duration-200" onClick={() => handleremoveorder(user)}>
-//               Proceed to Checkout
-//             </button></Link>
-//           )
-//           }
-//         </div>
-//       </div>
-//     </div>
-
-
-//   )
-// }
-
-// export default Cartis
 import React, { useContext, useEffect, useState } from 'react';
 import { ProductContext } from '../Context/Context';
 import axios from 'axios';
-import { useNavigate, Link } from 'react-router-dom';
-
-/////handle cart in context//////////
+import { useNavigate } from 'react-router-dom';
 
 const Cartis = () => {
-  const { cart, setCart } = useContext(ProductContext);
+  const { cart, setCart, userCart, loadCart } = useContext(ProductContext);
   const navigate = useNavigate();
-  const [order, setOrder] = useState([]);
-
-  // Load cart from local storage or API
-  function loadCart(userId) {
-    const savedCart = localStorage.getItem("cart");
-    if (savedCart) {
-      try {
-        setCart(JSON.parse(savedCart));
-      } catch (error) {
-        console.error("Error parsing saved cart:", error);
-        localStorage.removeItem("cart");
-      }
-    } else {
-      axios.get(`http://localhost:3000/users/${userId}`)
-        .then((res) => {
-          const userCart = res.data.cart || [];
-          setCart(userCart);
-          localStorage.setItem("cart", JSON.stringify(userCart));
-        })
-        .catch((err) => console.log(err));
-    }
-  }
+  const [totalAmount, setTotalAmount] = useState(0);
 
   useEffect(() => {
-    const userId = localStorage.getItem("id");
-    if (userId) {
-      loadCart(userId);
-    } else {
-      alert("Please log in..");
-      navigate('/login');
+    loadCart();
+  }, []);
+
+  const cartItems = userCart?.items || [];
+ 
+
+  useEffect(() => {
+    const total = cartItems.reduce((total, item) => {
+      return total + (parseFloat(item.productId.price) || 0) * (parseInt(item.quantity) || 0);
+    }, 0);
+    setTotalAmount(total);
+  }, [cartItems]);
+
+  const updateQuantity = async (item, newQuantity) => {
+    if (newQuantity < 1) return; // Prevents negative values
+
+    try {
+      if (newQuantity > item.quantity) {
+        // Increment quantity
+        await axios.patch(`http://localhost:4001/cart/incrementQty/${item.productId._id}`, {}, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`, // Include JWT token
+          },
+        });
+      } else if (newQuantity < item.quantity) {
+        // Decrement quantity
+        await axios.patch(`http://localhost:4001/cart/decrementQty/${item.productId._id}`, {}, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`, // Include JWT token
+          },
+        });
+      }
+      loadCart(); // Reloads cart after updating
+    } catch (error) {
+      console.error("Error updating quantity:", error);
     }
-  }, [navigate]);
+  };
 
-  const userId = localStorage.getItem("id");
+  const removeItem = async (item) => {
+    try {
+      await axios.delete(`http://localhost:4001/cart/deleteFromCart/${item.productId._id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`, // Include JWT token
+        },
+      });
+      loadCart(); // Reloads cart after removing item
+    } catch (error) {
+      console.error("Error removing item:", error);
+    }
+  };
 
-  // Remove item from cart
-  function handleRemove(id) {
-    const removeCart = cart.filter(item => item.id !== id);
-    setCart(removeCart);
-    axios.patch(`http://localhost:3000/users/${userId}`, { cart: removeCart });
-    localStorage.setItem("cart", JSON.stringify(removeCart));
-  }
+  const amount = totalAmount;
+  const currency = "INR";
+  const receiptId = "qwsaq";
 
-  // Place order and empty the cart
-  const placeOrder = () => {
-    if (cart.length === 0) {
-      alert("Your cart is empty. Please add items before proceeding.");
+  const paymentHandler = async (e) => {
+    e.preventDefault();
+    if (totalAmount <= 0) {
+      alert("Your cart is empty! Add items before proceeding to payment.");
       return;
     }
 
-    axios.get(`http://localhost:3000/users/${userId}`)
-      .then((res) => {
-        const existingOrders = res.data.order || []; // Get existing orders or initialize empty
-        const newOrders = [...existingOrders, ...cart]; // Combine existing orders with current cart
+    const amountInPaise = totalAmount * 100;
 
-        // Patch request to update the user's order and clear the cart
-        axios.patch(`http://localhost:3000/users/${userId}`, {
-          order: newOrders, // Update the order to include the new items
-          cart: [] // Clear the cart
-        })
-        .then(() => {
-          console.log("Order placed successfully:", newOrders);
-          setCart([]); // Clear the cart from state
-          localStorage.removeItem("cart"); // Clear cart from local storage
-          navigate('/s'); // Navigate to order page
-        })
-        .catch(err => {
-          console.error('Error with patch request:', err);
+    const response = await fetch("http://localhost:4001/order", {
+      method: "POST",
+      body: JSON.stringify({ amount: amountInPaise, currency, receipt: receiptId }),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    const order = await response.json();
+    console.log("Order Response:", order);
+
+    var options = {
+      key: "rzp_test_9wDJriBAQgWa2z",
+      amount: amountInPaise,
+      currency,
+      name: "Baby Products",
+      description: "Order Payment",
+      image: "https://example.com/your_logo",
+      order_id: order.id,
+      handler: async function (response) {
+        const validateRes = await fetch("http://localhost:4001/order/validates", {
+          method: "POST",
+          body: JSON.stringify(response),
+          headers: { "Content-Type": "application/json" },
         });
-      })
-      .catch(err => {
-        console.error('Error fetching user data:', err);
-      });
-  };
+        const jsonRes = await validateRes.json();
+        console.log(jsonRes);
+      },
+      prefill: { name: "Navya Suresh", email: "navya@gmail.com", contact: "7736277631" },
+      notes: { address: "Customer Billing Address" },
+      theme: { color: "#3399cc" },
+    };
 
-  // Calculate total price
-  const calculateTotal = (cart) => {
-    return cart.reduce((total, item) => {
-      const price = parseFloat(item.price) || 0;
-      const quantity = parseInt(item.quantity) || 0;
-      return total + (price * quantity);
-    }, 0);
-  };
-
-  // Handle quantity change
-  function handleQuantityChange(id, change) {
-    const updatedCart = cart.map(item => {
-      if (item.id === id) {
-        const newQuantity = item.quantity + change;
-        return { ...item, quantity: Math.max(newQuantity, 1) }; // Prevent quantity from going below 1
-      }
-      return item;
+    var rzp1 = new window.Razorpay(options);
+    rzp1.on("payment.failed", function (response) {
+      alert("Payment Failed: " + response.error.reason);
     });
 
-    setCart(updatedCart);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-    const itemToUpdate = updatedCart.find(item => item.id === id);
-    axios.patch(`http://localhost:3000/users/${userId}`, {
-      cart: updatedCart // Update the user's cart
-    });
-  }
+    rzp1.open();
+  };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 border border-gray-300 rounded-lg bg-white shadow-md">
-      <h2 className="text-2xl font-semibold text-center mb-4">Your Shopping Cart</h2>
-      {cart.length > 0 ? (
-        <div className="space-y-4">
-          {cart.map((item, index) => (
-            <div className="flex items-center p-4 border-b border-gray-200" key={item.id}>
-              {item.image && (
-                <img src={item.image} alt={item.title || "Product"} className="w-20 h-20 object-cover mr-4" />
-              )}
-              <div className="flex-grow">
-                <h3 className="text-lg font-medium">{item.title}</h3>
-                <p className="text-gray-600">${item.price} x {item.quantity}</p>
-              </div>
-              <div className="flex items-center space-x-2">
+    <div className="bg-gray-100 min-h-screen p-4">
+      {cartItems.map((item, index) => (
+        <div key={index} className="bg-white shadow-md rounded-lg p-4 mb-4 flex items-center justify-between">
+          <div className="flex items-center">
+            <div className="w-24 h-24 mr-4">
+              <img src={item.productId.image} alt={item.productId.title} className="w-full h-full object-cover rounded-lg" />
+            </div>
+            <div>
+              <p className="text-xl font-bold text-gray-800">{item.productId.title}</p>
+              <p className="text-gray-600">Price: ₹{item.productId.price}</p>
+              <p className="text-gray-600">Total: ₹{item.productId.price * item.quantity}</p>
+              <div className="flex items-center mt-2">
                 <button
-                  className="bg-gray-300 text-black py-1 px-2 rounded hover:bg-gray-400"
-                  onClick={() => handleQuantityChange(item.id, -1)}
+                  className="px-2 py-1 bg-gray-300 text-gray-700 rounded-md"
+                  onClick={() => updateQuantity(item, item.quantity - 1)}
                 >
-                  -
+                  ➖
                 </button>
-                <span>{item.quantity}</span>
+                <span className="px-4">{item.quantity}</span>
                 <button
-                  className="bg-gray-300 text-black py-1 px-2 rounded hover:bg-gray-400"
-                  onClick={() => handleQuantityChange(item.id, 1)}
+                  className="px-2 py-1 bg-gray-300 text-gray-700 rounded-md"
+                  onClick={() => updateQuantity(item, item.quantity + 1)}
                 >
-                  +
+                  ➕
                 </button>
                 <button
-                  className="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600 transition duration-200"
-                  onClick={() => handleRemove(item.id)}
+                  className="ml-4 px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600"
+                  onClick={() => removeItem(item)}
                 >
-                  Remove
+                  ❌ Remove
                 </button>
               </div>
             </div>
-          ))}
+          </div>
         </div>
-      ) : (
-        <p className="text-center text-gray-500">No items in the cart</p>
-      )}
-      <div className="mt-4 flex justify-between items-center">
-        <p className="text-xl font-semibold">
-          Total: <span className="text-green-600">${calculateTotal(cart).toFixed(2)}</span>
-        </p>
-        <div>
-          {cart.length > 0 && (
-            <button
-              className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition duration-200"
-              onClick={() => navigate('/shipping')}
-            >
-              Proceed to Checkout
-            </button>
-          )}
-        </div>
+      ))}
+
+      <div className="mt-6 text-right">
+        <p className="text-2xl font-bold text-gray-900">Total Price: ₹{totalAmount.toFixed(2)}</p>
+      </div>
+
+      <div className="mt-4 text-right">
+        <button
+          onClick={paymentHandler}
+          className="px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600"
+        >
+          Place Order
+        </button>
       </div>
     </div>
   );
 };
 
 export default Cartis;
-

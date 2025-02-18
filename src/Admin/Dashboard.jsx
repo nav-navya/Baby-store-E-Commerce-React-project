@@ -1,7 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 // import productDetails from '../Components/Shop/productDetails'
 import { ProductContext } from '../Components/Context/Context';
+import AdminAddProduct from './AdminAddProduct';
+import { Link } from 'react-router-dom';
+
 function Dashboard() {
+  
+ 
 
   const [selectedCategory, setSelectedCategory] = useState('allproducts')
   const { products, setProducts, users } = useContext(ProductContext)
@@ -49,12 +54,12 @@ function Dashboard() {
     }
 
     let totalOrders = 0;
-
-    users.forEach((user) => {
+    
+    users.data.forEach((user) => {
       totalOrders += user.order?.length || 0;
     });
     let totalEarningsTemp = 0; // 
-    users.forEach((user) => {
+    users.data.forEach((user) => {
       const userOrders = user.order || [];
       userOrders.forEach((order) => {
         const orderProducts = order.products || [];
@@ -81,7 +86,7 @@ function Dashboard() {
           Total Products : {products.length}
         </button>
         <button className="bg-pink-600 text-white text-xl font-bold py-4 rounded-lg shadow-md hover:bg-pink-700 transition duration-300" >
-          Total Users : {users.length}
+          Total Users : {users.data?.length}
         </button>
         <button className="bg-pink-600 text-white text-xl font-bold py-4 rounded-lg shadow-md hover:bg-pink-700 transition duration-300" >
           Total Orders : {totalOrders}
@@ -89,6 +94,12 @@ function Dashboard() {
         <button className="bg-pink-600 text-white text-xl font-bold py-4 rounded-lg shadow-md hover:bg-pink-700 transition duration-300" >
           Total Earnings : {totalEarnings}$
         </button>
+        <Link to="/admin/AddProduct">
+        <button className="bg-blue-200 text-black text-xl font-bold py-4 rounded-lg shadow-md hover:bg-pink-400 transition duration-300" >
+          Add products? 
+        </button>
+        </Link>
+        
       </div>
 
       <div></div>

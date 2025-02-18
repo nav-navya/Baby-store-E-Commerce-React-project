@@ -17,7 +17,7 @@ const AdminHome = () => {
     { name: "dashboard", link: "/admin/Dashboard", icon: MdOutlineDashboard },
     { name: "user", link: "/admin/User", icon: AiOutlineUser },
     { name: "products", link: "/admin/AdminViewProducts", icon: FiShoppingCart },
-    { name: 'orders', link: "/admin/AdminViewOrders", icon: FiShoppingCart }
+    // { name: 'orders', link: "/admin/AdminViewOrders", icon: FiShoppingCart }
 
   ];
   const [open, setOpen] = useState(true);

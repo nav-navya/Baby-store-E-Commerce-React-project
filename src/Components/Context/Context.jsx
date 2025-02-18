@@ -11,22 +11,28 @@ const Context = ({ children }) => {
   const [editingProduct, setEditingProduct] = useState(null);
   const [users, setUsers] = useState([]);
   const [quantity, setquantity] = useState(1);
-  const [cartLength , setCartLength] = useState(0);
+  const [cartLength, setCartLength] = useState(0);
+
+  const [userCart, setUserCart] = useState([])
 
 
   const navigate = useNavigate()
 
   function handleLogOut() {
+    console.log("loging out");
+
     navigate('/', { replace: true })
-    localStorage.removeItem("id")
-    localStorage.removeItem("isLoggedin")
-    localStorage.removeItem("cart")
-    localStorage.removeItem("isBlock")
+    localStorage.clear()
   }
 
   useEffect(() => {
-    axios.get('http://localhost:3000/products')
-      .then((res) => { setProducts(res.data) })
+    axios.get('http://localhost:4001/products/allProducts')
+      .then((res) => {
+        // console.log("allproducts",res.data.allProducts)
+        setProducts(res.data.allProducts)
+        console.log("product check on context", products)
+      })
+
       .catch((err) => { console.error('error fetching products..', err) })
   }, [])
 
@@ -35,39 +41,6 @@ const Context = ({ children }) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-  function loadCart(userId) {
-    let savedcart = localStorage.getItem("cart");
-
-    // Check if the saved cart is a valid JSON string
-    try {
-      if (savedcart) {
-        setCart(JSON.parse(savedcart));
-      } else {
-        axios.get(`http://localhost:3000/users/${userId}`)
-          .then((res) => {
-            const userCart = res.data.cart || [];
-            setCart(userCart);
-            // Store the cart as a stringified JSON
-            localStorage.setItem("cart", JSON.stringify(userCart));
-          });
-      }
-    }
-    catch (error) {
-      console.error("Error parsing saved cart from localStorage:", error);
-      // Clear any invalid data from localStorage
-      localStorage.removeItem("cart");
-    }
-  }
   useEffect(() => {
     const userId = localStorage.getItem("id");
     if (userId) {
@@ -76,27 +49,43 @@ const Context = ({ children }) => {
 
   }, [])
   ///////////////////////////////Admin users////////////////////////////////////////////////////////////////
-  useEffect(
-    () => {
-      const fetchUsers = async () => {
-        try {
-          const res = await axios.get(`http://localhost:3000/users`)
-          setUsers(res.data)
+  // useEffect(
+  //   () => {
+  //     const fetchUsers = async () => {
+  //       try {
+  //         const res = await axios.get(`http://localhost:3000/users`)
+  //         setUsers(res.data)
 
-        }
-        catch (error) {
-          console.log(`an error occured`, error)
-        }
+  //       }
+  //       catch (error) {
+  //         console.log(`an error occured`, error)
+  //       }
 
-      }
-      fetchUsers()
+  //     }
+  //     fetchUsers()
 
-    }, []
-  )
-
-
+  //   }, []
+  // )
 
 
+  const fetchUserData = async () => {
+    try {
+      const response = await axios.get(`http://localhost:4001/api/users/getUsers`)
+      console.log("response user data check",response.data)
+      setUsers(response.data)
+    }
+    catch (err) {
+      console.log("error occured when fetching user data", err)
+    }
+  }
+
+
+  useEffect(()=>{
+    fetchUserData()
+  },[])
+
+
+ 
 
 
 
@@ -149,83 +138,77 @@ const Context = ({ children }) => {
 
 
 
-  ///////////////////////////////////////////////////////////////////////////////////////////////
-
-  const AdminDeleteProduct = async (id) => {
-    try {
-      const response = await axios.delete(`http://localhost:3000/products/${id}`);
-      if (response.status === 200) {
-        setProducts(products.filter(product => product.id !== id))
-        alert(`product deleted successfully`);
-
-      }
-    }
-    catch (error) {
-      console.error("Error deleting product:", error);
-      alert("Failed to delete product");
-
-
-    }
-
-  }
-  ///////////////////////admin delete user//////////////////////////////////
-
-
-  const adminDeleteUser = async (id) => {
-    try {
-      const response = await axios.delete(`http://localhost:3000/users/${id}`);
-      if (response.status === 200) {
-        setUsers(users.filter(user => user.id !== id))
-        alert("deleted succesfully")
-
-
-      }
-    } catch (err) {
-      console.log("error occured", err)
-    }
-
-  }
-
-
-
-
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+  function loadCart() {
+
+    axios.get("http://localhost:4001/cart/getCart", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      }
+    })
+      .then((res) => {
+        setUserCart(res.data.cart)
+
+
+      })
+      .catch((error) => {
+        console.error("error occured...")
+      })
+  }
+
+  useEffect(() => {
+    loadCart()
+  }, [])
+  
+  
   function handlecart(elem) {
-    const gotItem = localStorage.getItem("id");
+    const token = localStorage.getItem("token");
     const blockedStatus = localStorage.getItem("isBlock")
 
-    if (!gotItem) {
+    if (!token) {
       alert("Please log in.");
-    } else if (blockedStatus === "true") {
+    } else if (blockedStatus === true) {
       alert("please contact Admin")
 
     } else {
-      let isPresent = cart.some((item) => item.id === elem.id);//some() returns true or false
+      console.log(cart)
+      let isPresent = cart.some((item) => item._id === elem._id);
+      console.log(isPresent)
+      //some() returns true or false
 
       if (isPresent) {
         alert("The product is already in the cart.");
       } else {
         const updatedCart = [...cart, elem]
-        axios.patch(`http://localhost:3000/users/${gotItem}`, {//if cart is already in it. no need to create . adding new key as cart 
-          cart: updatedCart,
+
+        axios.post(`http://localhost:4001/cart/add`, {
+          productId: elem._id,
+          quantity: 1,
+        }, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+
+          }
         })
           .then((res) => {
             console.log(res.data);
-            setCart(updatedCart);
-            localStorage.setItem("cart", JSON.stringify(updatedCart));
-            alert("Cart added successfully.");
-            const length = updatedCart.length;
-            setCartLength(length)
+            alert("product added succesfully")
 
           })
           .catch((err) => {
-            console.error(err);
-            alert("Failed to add to cart. Please try again.");
+            console.error(" error catch", err);
+            if (err?.status == 400) {
+              alert("product already in the cart")
+            }
+            // alert("Failed to add to cart. Please try again.");
           });
       }
     }
   }
+
 
   const handleEditSubmit = async (e, currentProduct) => {
     e.preventDefault();
@@ -244,12 +227,14 @@ const Context = ({ children }) => {
   }
 
 
+
+
   // };
 
 
 
   return (
-    <ProductContext.Provider value={{ products, handleLogOut, handlecart, cart, setCart, placeOrder, order, setProducts, handleEditSubmit, users, setUsers, adminDeleteUser,cartLength }}>
+    <ProductContext.Provider value={{ products, handleLogOut, handlecart, cart, setCart, placeOrder, order, setProducts, handleEditSubmit, users, setUsers, cartLength, userCart, loadCart }}>
       {children}
     </ProductContext.Provider>
   )

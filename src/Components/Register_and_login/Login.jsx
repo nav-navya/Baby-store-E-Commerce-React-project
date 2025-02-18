@@ -1,6 +1,9 @@
+
 import React, { useState } from 'react';
-import axios from 'axios'
-import {Link, useNavigate} from 'react-router-dom'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+;
 
 const LoginSignup = () => {
   const [formData, setFormData] = useState({
@@ -8,8 +11,7 @@ const LoginSignup = () => {
     email: '',
     pwd: '',
     cpwd: '',
-    isBlock : false
-
+    isBlock: false,
   });
 
   const [errors, setErrors] = useState({});
@@ -21,98 +23,120 @@ const LoginSignup = () => {
     let isValid = true;
     let validationError = {};
 
-    if (formData.fname === '' || formData.fname === null) {
+    if (!formData.fname) {
       isValid = false;
-      validationError.fname = 'Full Name is Required..';
+      validationError.fname = 'Full Name is required.';
     }
 
-    if (formData.email === '' || formData.email === null) {
+    if (!formData.email) {
       isValid = false;
-      validationError.email = 'Email is Required';
+      validationError.email = 'Email is required.';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       isValid = false;
-      validationError.email = 'Email is not Valid';
+      validationError.email = 'Email is not valid.';
     }
 
-    if (formData.pwd === '' || formData.pwd === null) {
+    if (!formData.pwd) {
       isValid = false;
-      validationError.pwd = 'Password is Required';
+      validationError.pwd = 'Password is required.';
     } else if (formData.pwd.length < 6) {
       isValid = false;
-      validationError.pwd = 'Password should be at least six characters';
+      validationError.pwd = 'Password should be at least six characters.';
     }
 
     if (formData.pwd !== formData.cpwd) {
       isValid = false;
-      validationError.cpwd = 'Please provide matching passwords';
+      validationError.cpwd = 'Passwords do not match.';
     }
 
     setErrors(validationError);
     setValidation(isValid);
 
-    if (Object.keys(validationError).length === 0) {
-      // alert('Registered Successfully...');
-      axios.post('http://localhost:3000/users',formData)
-      .then(result =>{
-        alert("Registerd Successfully")
-        navigate('/')
-      })
-      .catch(err =>console.log(err))
-      
+    if (isValid) {
+      axios
+        .post('http://localhost:4001/auth/register', {
+          name: formData.fname,
+          email: formData.email,
+          password: formData.cpwd,
+        })
+        .then(() => {
+          alert('Registered Successfully');
+          navigate('/login'); // Redirect after success
+        })
+        .catch((err) => console.log(err));
     }
   };
-  
+
   return (
-    <div className='w-screen h-dvh bg-slate-800 flex items-center justify-center'>
-      <div className='w-full sm:w-3/4 md:w-1/2 lg:w-1/3 h-3/4 bg-cyan-100 rounded-lg flex-col flex justify-center items-center p-4'>
-        <div className='text-blue-900 font-bold text-3xl mb-6'>Sign Up</div>
-        <form className='w-full' onSubmit={handleSubmit}>
-          <div>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
+        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Sign Up</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label className="block text-gray-700">Full Name</label>
             <input
-              type='text'
-              placeholder='Name'
-              className='w-full m-2 h-10 border border-gray-400 rounded-lg p-2'
+              type="text"
+              placeholder="Enter your full name"
+              className={`w-full mt-2 p-3 border rounded-lg focus:outline-none focus:ring-2 ${
+                errors.fname ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-blue-200'
+              }`}
               onChange={(e) => setFormData({ ...formData, fname: e.target.value })}
             />
-            {validation ? <></> : <span>{errors.fname}</span>}
+            {errors.fname && <p className="text-red-500 text-sm mt-1">{errors.fname}</p>}
           </div>
 
-          <div>
+          <div className="mb-4">
+            <label className="block text-gray-700">Email</label>
             <input
-              type='email'
-              placeholder='Email'
-              className='w-full m-2 h-10 border border-gray-400 rounded-lg p-2'
+              type="email"
+              placeholder="Enter your email"
+              className={`w-full mt-2 p-3 border rounded-lg focus:outline-none focus:ring-2 ${
+                errors.email ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-blue-200'
+              }`}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             />
-            {validation ? <></> : <span>{errors.email}</span>}
+            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
           </div>
 
-          <div>
+          <div className="mb-4">
+            <label className="block text-gray-700">Password</label>
             <input
-              type='password'
-              placeholder='Password'
-              className='w-full m-2 h-10 border border-gray-400 rounded-lg p-2'
+              type="password"
+              placeholder="Enter your password"
+              className={`w-full mt-2 p-3 border rounded-lg focus:outline-none focus:ring-2 ${
+                errors.pwd ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-blue-200'
+              }`}
               onChange={(e) => setFormData({ ...formData, pwd: e.target.value })}
             />
-            {validation ? <></> : <span>{errors.pwd}</span>}
+            {errors.pwd && <p className="text-red-500 text-sm mt-1">{errors.pwd}</p>}
           </div>
 
-          <div>
+          <div className="mb-6">
+            <label className="block text-gray-700">Confirm Password</label>
             <input
-              type='password'
-              placeholder='Confirm Password'
-              className='w-full m-2 h-10 border border-gray-400 rounded-lg p-2'
+              type="password"
+              placeholder="Confirm your password"
+              className={`w-full mt-2 p-3 border rounded-lg focus:outline-none focus:ring-2 ${
+                errors.cpwd ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-blue-200'
+              }`}
               onChange={(e) => setFormData({ ...formData, cpwd: e.target.value })}
             />
-            {validation ? <></> : <span>{errors.cpwd}</span>}
+            {errors.cpwd && <p className="text-red-500 text-sm mt-1">{errors.cpwd}</p>}
           </div>
 
-          <div className='submit-container w-full flex place-content-around'>
-            <button type='submit' className='bg-slate-800 text-white p-2 rounded-lg'>Sign Up</button>
-            
-          </div>
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white p-3 rounded-lg font-semibold hover:bg-blue-600 transition duration-300"
+          >
+            Sign Up
+          </button>
         </form>
-        <div>Does have an Account ? <Link to='/login'>Log in ...</Link></div>
+        <p className="text-center text-gray-600 mt-6">
+          Already have an account?{' '}
+          <Link to="/login" className="text-blue-500 hover:underline">
+            Log in
+          </Link>
+        </p>
       </div>
     </div>
   );

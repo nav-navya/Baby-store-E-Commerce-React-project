@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "fname": "Admin",
       "email": "admin@gmail.com",
       "pwd": "12345678",
@@ -14,7 +14,24 @@
       "pwd": "123456",
       "cpwd": "123456",
       "isBlock": false,
-      "cart": [],
+      "cart": [
+        {
+          "id": "4",
+          "name": "Baby Bottle - Anti-Colic (Pack of 3)",
+          "image": " https://rukminim2.flixcart.com/image/612/612/xif0q/baby-bottle/g/a/n/anti-colic-slim-regular-neck-essential-baby-feeding-bottle-original-imah4gz6bskd8t7k.jpeg?q=70",
+          "price": "49.99",
+          "category": "nutrition",
+          "quantity": 1
+        },
+        {
+          "id": "5",
+          "name": "Baby Blanket - Soft and Cozy",
+          "image": "https://rukminim2.flixcart.com/image/612/612/ksdjma80/blanket/g/s/d/microfiber-double-bed-all-weather-comforter-200-gsm-size-45x60-original-imag5yhfkysxgpsh.jpeg?q=70",
+          "price": "29.99",
+          "category": "nursery",
+          "quantity": 1
+        }
+      ],
       "order": [
         {
           "orderId": "2024-10-09T04:32:36.626Z",
@@ -397,6 +414,14 @@
           "status": "Paid"
         }
       ]
+    },
+    {
+      "id": "2e3d",
+      "fname": "Navu",
+      "email": "nnav@gmail.com",
+      "pwd": "justdoit@321",
+      "cpwd": "justdoit@321",
+      "isBlock": false
     }
   ],
   "products": [
