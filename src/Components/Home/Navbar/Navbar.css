@@ -1,6 +1,6 @@
 ul a.active{
   font-weight: bold;
   color: brown;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 

@@ -115,7 +115,8 @@ const Cartis = () => {
 
   return (
     <div className="bg-gray-100 min-h-screen p-4">
-      {cartItems.map((item, index) => (
+      {cartItems.length==0?(<div className='flex justify-center items-center'>Your cart is empty</div>):(
+      cartItems.map((item, index) => (
         <div key={index} className="bg-white shadow-md rounded-lg p-4 mb-4 flex items-center justify-between">
           <div className="flex items-center">
             <div className="w-24 h-24 mr-4">
@@ -149,9 +150,11 @@ const Cartis = () => {
             </div>
           </div>
         </div>
-      ))}
+      )))}
 
-      <div className="mt-6 text-right">
+     { cartItems.length==0?(<div></div>):
+     <div>
+     <div className="mt-6 text-right">
         <p className="text-2xl font-bold text-gray-900">Total Price: ₹{totalAmount.toFixed(2)}</p>
       </div>
 
@@ -163,6 +166,8 @@ const Cartis = () => {
           Place Order
         </button>
       </div>
+      </div>
+}
     </div>
   );
 };

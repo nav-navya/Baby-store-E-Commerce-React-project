@@ -93,6 +93,9 @@
 
 // export default Navbar
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 import React, { useContext, useEffect } from 'react';
 import { IoIosMenu } from 'react-icons/io';
 import { FaUser } from 'react-icons/fa';
@@ -139,9 +142,9 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="bg-slate-800 p-4 flex items-center justify-between">
-        <div className="text-white text-2xl font-bold">
-          Baby<span className="text-pink-600">Boo</span>
+      <nav className="bg-white px-8 py-4 flex items-center justify-between">
+        <div className="text-black text-2xl font-bold">
+          Tiny<span className="text-red-600">Tony</span>
         </div>
 
         <div className="block md:hidden fixed top-4 right-4">
@@ -156,7 +159,7 @@ const Navbar = () => {
             onClick={handleCartClick}
           >
             <div className="relative flex">
-              <li className="text-white text-2xl">
+              <li className="text-black text-2xl">
                 <FaShoppingCart />
               </li>
               <p className="absolute -top-4 -right-4 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
@@ -165,20 +168,20 @@ const Navbar = () => {
             </div>
           </NavLink>
           <NavLink to="/">
-            <li className="text-white">Home</li>
+            <li className="text-black">Home</li>
           </NavLink>
           <NavLink to="/viewShop">
-            <li className="text-white">Shop</li>
+            <li className="text-black">Shop</li>
           </NavLink>
 
           {!token ? (
             <NavLink to="/register">
-              <li className="text-white">
+              <li className="text-black">
                 <FaUser />
               </li>
             </NavLink>
           ) : (
-            <button onClick={handleLogOut} className="text-white px-4 border border-black">
+            <button onClick={handleLogOut} className="text-black px-4">
               Log out
             </button>
           )}
@@ -213,4 +216,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 

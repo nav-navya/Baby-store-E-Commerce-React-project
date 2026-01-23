@@ -48,25 +48,7 @@ const Context = ({ children }) => {
     }
 
   }, [])
-  ///////////////////////////////Admin users////////////////////////////////////////////////////////////////
-  // useEffect(
-  //   () => {
-  //     const fetchUsers = async () => {
-  //       try {
-  //         const res = await axios.get(`http://localhost:3000/users`)
-  //         setUsers(res.data)
-
-  //       }
-  //       catch (error) {
-  //         console.log(`an error occured`, error)
-  //       }
-
-  //     }
-  //     fetchUsers()
-
-  //   }, []
-  // )
-
+  
 
   const fetchUserData = async () => {
     try {
